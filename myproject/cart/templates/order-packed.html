@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Is Packed</title>
+    <style>
+
+        .table {
+            border-collapse: separate;
+            width: 100%;
+        }
+
+        tr {
+            border-bottom: 1px solid #fda717;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #004e95;
+            color: white;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            border-left: 0;
+            padding: 8px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .main-container {
+          padding-left: 30px;
+          padding-right: 30px;
+          padding-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main-container">
+Dear {{ cart.student_name }}, <br><br>
+
+This mail is to let you know that Your Order "<a style="color: red; font-weight: bold">{{ cart.booking_id }}</a>"
+is placed, and you can get the product on by going to the store with your ORDER ID.
+
+<br><br>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in items %}
+        <tr>
+            <td>{{ i.item.name }}</td>
+            <td>{{ i.item.unit_price }}</td>
+            <td>{{ i.item.quantity }}</td>
+            <td>{{ i.item.total_price }}</td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="3" class="text-center">SubTotal</td>
+        <td>{{ cart.total_price }}</td>
+    </tr>
+    </tbody>
+</table>
+<br><br>
+Regards,<br>
+Store Website Admin
+</div>
+</body>
+</html>
