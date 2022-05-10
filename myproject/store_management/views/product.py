@@ -16,7 +16,7 @@ class ProductModelFormView(ModelFormView):
             "name": saved.name,
             "image": saved.image.url if saved.image else '',
             "selling_price": saved.selling_price if saved.selling_price else '',
-            "stock": saved.selling_price if saved.selling_price else 0,
+            "stock": saved.stock if saved.stock else 0,
             "disable": saved.disable,
             "category": {
                 'id': saved.category.id,
@@ -48,7 +48,7 @@ class ProductListView(ModelListView):
             "name": record.name,
             "image": record.image.url if record.image else '',
             "selling_price": record.selling_price if record.selling_price else '',
-            "stock": record.selling_price if record.selling_price else '',
+            "stock": record.stock if record.stock else 0,
             "disable": record.disable,
             "category": {
                 'id': record.category.id,
