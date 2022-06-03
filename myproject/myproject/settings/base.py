@@ -49,6 +49,7 @@ INSTALLED_APPS += [
     'store_management',
     'cart',
     'base_class',
+    'shops',
 ]
 
 MIDDLEWARE = [
