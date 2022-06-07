@@ -67,6 +67,7 @@ class CheckoutForm(forms.Form):
 
         context = {
             'cart': cart,
+            'total_price': cart.total_price/100,
             'items': items
         }
 
