@@ -96,7 +96,8 @@ class Booking(models.Model):
         cart.add_item(product, quantity, booking_item)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        self.booking_id = generate_booking_id()
+        if not self.booking_id:
+            self.booking_id = generate_booking_id()
         op = models.Model.save(self, force_insert, force_update, using, update_fields)
         return op
 

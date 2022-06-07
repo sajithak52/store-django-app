@@ -61,7 +61,7 @@ class CheckOutAPIDetails(ClassView):
             if cart.is_mail_send:
                 self.add('message', 'Your order under processing. Please try after sometime')
 
-            data = BookingItems.objects.filter(booking=cart)
+            data = BookingItems.objects.filter(booking_id=cart.id)
 
             cart_data = {
                 "id": cart.id,
