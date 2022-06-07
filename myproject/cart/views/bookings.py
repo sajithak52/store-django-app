@@ -119,6 +119,8 @@ class PurchaseOrder(FormView):
 
     def save(self, form):
         order = form.cleaned_data.get('booking')
+        print("booking : ", order)
+        print("order id : ", order.booking_id)
 
         order.is_purchased = True
         order.save()
