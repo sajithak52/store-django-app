@@ -2,7 +2,7 @@ from django import forms
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
-from .models import Booking
+from .models import Booking, BookingItems
 from django.core.validators import RegexValidator
 
 mobile_regex = RegexValidator(
@@ -45,11 +45,25 @@ class CheckoutForm(forms.Form):
     branch = forms.CharField(max_length=256, required=False)
 
     def send_mail(self, cart):
-        from_email = 'rv4971254@gmail.com'
+        from_email = 'mission242022@gmail.com'
         subject = 'Your order is Packed'
         recipients = [cart.email_address]
 
-        items = Booking.objects.filter(booking_id=cart.id)
+        data = BookingItems.objects.filter(booking=cart)
+
+        items = []
+        for i in data:
+            it = {
+                "id": i.id,
+                "booking": i.booking.id,
+                "item": i.item.id,
+                "item_name": i.item.name,
+                "image": i.item.image.url,
+                "quantity": i.quantity,
+                "unit_price": i.unit_price,
+                "total_price": i.total_price,
+            }
+            items.append(it)
 
         context = {
             'cart': cart,

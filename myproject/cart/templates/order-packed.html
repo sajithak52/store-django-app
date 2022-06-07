@@ -61,10 +61,10 @@ is placed, and you can get the product on by going to the store with your ORDER 
     <tbody>
     {% for i in items %}
         <tr>
-            <td>{{ i.item.name }}</td>
-            <td>{{ i.item.unit_price }}</td>
-            <td>{{ i.item.quantity }}</td>
-            <td>{{ i.item.total_price }}</td>
+            <td>{{ i.item_name }}</td>
+            <td>{{ i.unit_price }}</td>
+            <td>{{ i.quantity }}</td>
+            <td>{{ i.total_price }}</td>
         </tr>
     {% endfor %}
     <tr>
