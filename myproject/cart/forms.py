@@ -60,8 +60,8 @@ class CheckoutForm(forms.Form):
                 "item_name": i.item.name,
                 "image": i.item.image.url,
                 "quantity": i.quantity,
-                "unit_price": i.unit_price,
-                "total_price": i.total_price,
+                "unit_price": i.unit_price/100,
+                "total_price": i.total_price/100,
             }
             items.append(it)
 
