@@ -73,8 +73,8 @@ class ContactUs(FormView):
         from django.core.mail import EmailMessage
         email = EmailMessage(
             subject=subject, body=body_message,
-            from_email='from@from.com',
-            to=['mail@mail.com'],
+            from_email='mission242022@gmail.com',
+            to=[email],
             reply_to=[email]
         )
         email.send(fail_silently=False)
